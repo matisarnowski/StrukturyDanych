@@ -23,6 +23,7 @@ public class Main {
                     "    SHOW,\n" +
                     "    SHOW_REVERSE,\n" +
                     "    IS_EMPTY,\n" +
+                    "    SEARCH,\n" +
                     "lub QUIT, aby wyjść");
             argument = sc.next();
 
@@ -102,6 +103,39 @@ public class Main {
                 case IS_EMPTY:
                     System.out.println("Lista pusta TRUE/FALSE: " + list.isEmpty());
                     break;
+                case SEARCH:
+                    try {
+                        System.out.println("Podaj element, który chcesz wyszukać.");
+                        number = sc.next();
+                        numberInt = Integer.parseInt(number);
+                        ListItem elem = list.search(numberInt);
+                        System.out.println("Znaleziono element: " + elem.getValue());
+                        break;
+                    }
+                    catch (NumberFormatException | NullPointerException e){
+                        System.out.print("Nie znaleziono elementu ");
+                        e.printStackTrace();
+                        break;
+                    }
+                case REMOVE:
+                    try {
+                        System.out.println("Podaj element, który chcesz wyszukać.");
+                        number = sc.next();
+                        numberInt = Integer.parseInt(number);
+                        boolean equal = list.remove(numberInt);
+                        if (equal == true){
+                            System.out.println("Usunięto element " + numberInt);
+                        }
+                        else {
+                            System.out.println("Nie znaleziono elementu " + numberInt);
+                        }
+                        break;
+                    }
+                    catch (NumberFormatException e){
+                        System.out.print("Nie znaleziono elementu ");
+                        e.printStackTrace();
+                        break;
+                    }
                 default:
                     throw new IllegalStateException("Unexpected value: " + Operation.valueOf(argument));
             }
