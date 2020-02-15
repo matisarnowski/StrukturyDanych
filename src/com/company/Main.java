@@ -26,7 +26,7 @@ public class Main {
                     "lub QUIT, aby wyjść");
             argument = sc.next();
 
-            if (argument.equals("QUIT")){
+            if (argument.equals("QUIT")) {
                 break;
             }
 
@@ -56,6 +56,7 @@ public class Main {
                     try {
                         System.out.println("Ta liczba, to: " + list.pollFirst());
                     } catch (ListEmptyException e) {
+                        e.printStackTrace();
                     }
                     break;
                 case POLL_LAST:
@@ -63,6 +64,7 @@ public class Main {
                     try {
                         System.out.println("Ta liczba, to: " + list.pollLast());
                     } catch (ListEmptyException e) {
+                        e.printStackTrace();
                     }
                     break;
                 case PEEK_FIRST:
@@ -70,6 +72,7 @@ public class Main {
                     try {
                         System.out.println("Ta liczba, to: " + list.peekFirst());
                     } catch (ListEmptyException e) {
+                        e.printStackTrace();
                     }
                     break;
                 case PEEK_LAST:
@@ -77,16 +80,25 @@ public class Main {
                     try {
                         System.out.println("Ta liczba, to: " + list.peekLast());
                     } catch (ListEmptyException e) {
+                        e.printStackTrace();
                     }
                     break;
                 case SHOW:
-                    System.out.println("Tadam!");
-                    list.show();
-                    break;
+                    try {
+                        System.out.println("Tadam!");
+                        list.show();
+                        break;
+                    } catch (ListEmptyException e) {
+                        e.printStackTrace();
+                    }
                 case SHOW_REVERSE:
-                    System.out.println("Tadam");
-                    list.showReverse();
-                    break;
+                    try {
+                        System.out.println("Tadam");
+                        list.showReverse();
+                        break;
+                    } catch (ListEmptyException e) {
+                        e.printStackTrace();
+                    }
                 case IS_EMPTY:
                     System.out.println("Lista pusta TRUE/FALSE: " + list.isEmpty());
                     break;

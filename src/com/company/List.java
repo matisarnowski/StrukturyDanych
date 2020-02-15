@@ -41,6 +41,7 @@ public class List {
             first = last = null;
         } else {
             first = first.getNext();
+            first.setPrev(null);
         }
         return value;
     }
@@ -54,6 +55,7 @@ public class List {
             first = last = null;
         } else {
             last = last.getPrev();
+            last.setNext(null);
         }
         return value;
     }
@@ -79,6 +81,9 @@ public class List {
     }
 
     public void show() {
+        if (isEmpty()) {
+            throw new ListEmptyException();
+        }
         System.out.println("Wypisuję listę od początku!");
         ListItem tmp = first;
         if (first == last){
@@ -93,6 +98,9 @@ public class List {
     }
 
     public void showReverse() {
+        if (isEmpty()) {
+            throw new ListEmptyException();
+        }
         System.out.println("Wypisuję listę od końca!");
         ListItem tmp = last;
         if (first == last){
