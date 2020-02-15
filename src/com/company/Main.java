@@ -24,6 +24,7 @@ public class Main {
                     "    SHOW_REVERSE,\n" +
                     "    IS_EMPTY,\n" +
                     "    SEARCH,\n" +
+                    "    REMOVE,\n" +
                     "lub QUIT, aby wyjść");
             argument = sc.next();
 

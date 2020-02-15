@@ -8,9 +8,8 @@ public enum Operation {
     PEEK_LAST,
     POLL_FIRST,
     POLL_LAST,
+    REMOVE,
     SEARCH,
     SHOW,
-    SHOW_REVERSE,
-    REMOVE
-
+    SHOW_REVERSE
 }
